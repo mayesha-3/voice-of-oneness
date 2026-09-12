@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const sponsors = [
+  { name: 'TV One UK', category: 'Organizer & Main Broadcaster', logo: '/placeholders/sponsor-tvone.svg' },
+  { name: 'Islamic Relief UK', category: 'Principal Community Partner', logo: '/placeholders/sponsor-ir.svg' },
+  { name: 'Al-Khair Foundation', category: 'Gold Sponsor', logo: '/placeholders/sponsor-alkhair.svg' },
+  { name: 'National Quran Academy', category: 'Educational Partner', logo: '/placeholders/sponsor-nqa.svg' },
+];
+---
+
+<BaseLayout
+  title="Our Sponsors & Partners | The Voice of Oneness"
+  description="Sponsors, partners, and community organizations supporting The Voice of Oneness national Qur'an competition."
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
+    <div class="text-center max-w-2xl mx-auto">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Sponsors & Partners</h1>
+      <p class="text-slate-600 mt-2">We extend our gratitude to our partners supporting Quranic excellence across the nation.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {sponsors.map((s) => (
+        <div class="bg-white border border-slate-200 rounded-xl p-6 text-center flex flex-col justify-between hover:shadow-md transition-shadow">
+          <div class="h-24 bg-slate-50 rounded-lg flex items-center justify-center border border-slate-200 text-slate-500 font-bold mb-4">
+            {s.name} Logo
+          </div>
+          <div>
+            <span class="text-xs font-bold text-tvone-orange uppercase block mb-1">{s.category}</span>
+            <h3 class="text-base font-bold text-slate-900">{s.name}</h3>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="bg-slate-50 border border-slate-200 rounded-xl p-8 text-center max-w-3xl mx-auto space-y-4 shadow-sm">
+      <h2 class="text-2xl font-bold text-slate-900">Become a Season 6 Sponsor</h2>
+      <p class="text-sm text-slate-600">
+        Partner with TV One UK to support young reciters and reach hundreds of thousands of viewers across Europe.
+      </p>
+      <a href="mailto:sponsorship@tvoneuk.com" class="inline-block bg-tvone-orange hover:bg-tvone-orange-dark text-white font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-lg transition-colors shadow-sm">
+        Sponsorship Enquiries
+      </a>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,56 @@
+---
+import SEOHead from '../components/shared/SEOHead';
+import Navbar from '../components/shared/Navbar';
+import Footer from '../components/shared/Footer';
+import '../styles/global.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  canonicalUrl?: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article' | 'profile';
+  eventSchema?: Record<string, any>;
+  personSchema?: Record<string, any>;
+}
+
+const {
+  title,
+  description,
+  canonicalUrl,
+  ogImage,
+  ogType = 'website',
+  eventSchema,
+  personSchema
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <SEOHead
+      title={title}
+      description={description}
+      canonicalUrl={canonicalUrl || Astro.url.href}
+      ogImage={ogImage}
+      ogType={ogType}
+      eventSchema={eventSchema}
+      personSchema={personSchema}
+      client:load
+    />
+  </head>
+  <body class="bg-white text-slate-900 min-h-screen flex flex-col antialiased">
+    <Navbar client:load />
+
+    <main class="flex-grow">
+      <slot />
+    </main>
+
+    <Footer />
+  </body>
+</html>

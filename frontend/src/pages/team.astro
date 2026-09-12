@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TeamTabs from '../components/team/TeamTabs';
+---
+
+<BaseLayout
+  title="Behind the Screen: Presenters & Judges | The Voice of Oneness"
+  description="Meet the esteemed panel of judges and studio presenters guiding reciters on TV One UK."
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
+    <div class="text-center max-w-2xl mx-auto">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Meet the Team</h1>
+      <p class="text-slate-600 mt-2">Behind the screen: Our distinguished panel of Tajweed scholars, Qaris, and television presenters.</p>
+    </div>
+
+    <section>
+      <TeamTabs client:load />
+    </section>
+  </div>
+</BaseLayout>

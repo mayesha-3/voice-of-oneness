@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContestantStageList from '../components/contestants/ContestantStageList';
+import contestants from '../content/contestants.json';
+---
+
+<BaseLayout
+  title="Season 6 Contestants | The Voice of Oneness"
+  description="Browse top-40 semi-finalists and top-10 finalists selected for Season 6 of The Voice of Oneness."
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
+    <div class="text-center max-w-2xl mx-auto">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Season 6 Contestants</h1>
+      <p class="text-slate-600 mt-2">Discover the top reciters selected across the UK to perform on TV One UK live broadcast stages.</p>
+    </div>
+
+    <section>
+      <ContestantStageList contestants={contestants} client:load />
+    </section>
+  </div>
+</BaseLayout>

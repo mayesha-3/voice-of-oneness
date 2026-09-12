@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import winners from '../../content/winners.json';
+
+export async function getStaticPaths() {
+  return winners.map((winner) => ({
+    params: { slug: winner.slug },
+    props: { winner },
+  }));
+}
+
+const { winner } = Astro.props;
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": winner.name,
+  "jobTitle": `Winner of The Voice of Oneness (${winner.year})`,
+  "award": `1st Place - The Voice of Oneness ${winner.year}`,
+  "alumniOf": winner.location,
+  "description": winner.quote
+};
+---
+
+<BaseLayout
+  title={`${winner.name} — Champion of ${winner.year} | The Voice of Oneness`}
+  description={`Profile and recitation details for ${winner.name}, champion of The Voice of Oneness ${winner.year}.`}
+  personSchema={personSchema}
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8">
+    <a href="/hall-of-fame" class="inline-flex items-center text-xs font-bold text-tvone-orange hover:text-tvone-blue transition-colors">
+      &larr; Back to Hall of Fame
+    </a>
+
+    <div class="bg-white border border-slate-200 shadow-sm rounded-xl p-8">
+      <div class="flex flex-col md:flex-row gap-8 items-center">
+        <div class="w-48 h-48 bg-slate-100 rounded-xl flex items-center justify-center text-slate-500 font-medium border border-slate-200 shrink-0">
+          <span>{winner.name} Portrait</span>
+        </div>
+
+        <div class="space-y-3 text-center md:text-left">
+          <span class="inline-block bg-tvone-orange text-white text-xs font-extrabold px-3 py-1 rounded-full shadow-sm">
+            Champion {winner.year}
+          </span>
+          <h1 class="text-3xl font-extrabold text-slate-900">{winner.name}</h1>
+          <p class="text-sm font-bold text-tvone-blue">{winner.category} • {winner.location}</p>
+
+          <blockquote class="text-base italic text-slate-700 border-l-4 border-tvone-orange pl-4 py-2 bg-slate-50 rounded-r text-left">
+            "{winner.quote}"
+          </blockquote>
+        </div>
+      </div>
+
+      <div class="mt-8 pt-8 border-t border-slate-200 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+        <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+          <span class="text-xs text-slate-500 uppercase font-semibold block">Final Score</span>
+          <span class="text-xl font-bold text-slate-900 mt-1 block">{winner.score || '98.5%'}</span>
+        </div>
+        <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+          <span class="text-xs text-slate-500 uppercase font-semibold block">Broadcast Season</span>
+          <span class="text-xl font-bold text-slate-900 mt-1 block">Season {winner.year - 2020} ({winner.year})</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

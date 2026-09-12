@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import RoundProgress from '../components/this-year/RoundProgress';
+import DailyLineupTabs from '../components/this-year/DailyLineupTabs';
+import StreamPlayer from '../components/this-year/StreamPlayer';
+---
+
+<BaseLayout
+  title="Season 6 Schedule & Live Broadcast | The Voice of Oneness"
+  description="Watch live broadcasts, explore the weekly broadcast lineup (Mon/Tue/Thu), and track competition stage progress for Season 6."
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
+    <div class="text-center">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Season 6 (2026) Central Hub</h1>
+      <p class="text-slate-600 mt-2">Live Studio Stream, Elimination Progression & Weekly Recitation Schedule</p>
+    </div>
+
+    {/* Stage Progression Stepper */}
+    <section>
+      <RoundProgress currentStage="semi-final" client:visible />
+    </section>
+
+    {/* Live Stream Player */}
+    <section>
+      <h2 class="text-xl font-bold text-slate-900 mb-4">TV One UK Live Broadcast Player</h2>
+      <StreamPlayer title="The Voice of Oneness Season 6 Live Broadcast" client:visible />
+    </section>
+
+    {/* Daily Lineup Schedule Tabs */}
+    <section>
+      <h2 class="text-xl font-bold text-slate-900 mb-4">Weekly Show Lineup (Monday / Tuesday / Thursday)</h2>
+      <DailyLineupTabs client:load />
+    </section>
+  </div>
+</BaseLayout>

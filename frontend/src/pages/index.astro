@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroCountdown from '../components/home/HeroCountdown';
+import LiveBanner from '../components/home/LiveBanner';
+import RoundProgress from '../components/this-year/RoundProgress';
+import UpdatesFeed from '../components/home/UpdatesFeed';
+import updates from '../content/updates.json';
+import CurtainBanner from '../components/home/CurtainBanner.tsx';
+
+const countdownConfig = {
+  targetDate: "2026-08-31T23:59:59Z",
+  eventTitle: "Registration Deadline Countdown",
+  subtitle: "Registration Deadline: 31 August 2026 (Age 7-13 Boys & Girls)"
+};
+
+const liveBannerConfig = {
+  isLive: false,
+  nextBroadcastTime: "Monday April 15 @ 8:00 PM GMT",
+  youtubeLiveUrl: "https://youtube.com/@tvoneuk"
+};
+---
+
+<BaseLayout
+  title="The Voice of Oneness — National Qur'an Recitation Competition | TV One UK"
+  description="Official home of The Voice of Oneness — the largest national Qur'an recitation competition in London and Europe, running since 2021 on TV One UK."
+>
+  <!-- 1. Banner Section (Mobile: clean full-width image; Desktop: 250vh curtain) -->
+  <CurtainBanner client:load />
+
+  <!-- 2. Main Page Content (Rises as a curtain on desktop; normal stack on mobile) -->
+  <div class="relative z-10 bg-white md:rounded-t-3xl md:shadow-[0_-20px_40px_rgba(0,0,0,0.3)] md:-mt-6 min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-14 pb-20 space-y-12 md:space-y-16">
+      
+      <!-- Live Status / Announcement Banner -->
+      <LiveBanner config={liveBannerConfig} client:load />
+
+      <!-- Registration Countdown Island -->
+      <HeroCountdown config={countdownConfig} client:load />
+
+      <!-- Stage Stepper Island (Roadmap with pop-in scroll trigger) -->
+      <section>
+        <RoundProgress currentStage="elimination" client:visible />
+      </section>
+
+      <!-- Latest Updates & News Feed -->
+      <section class="max-w-4xl mx-auto">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-xl sm:text-2xl font-bold text-slate-900">Latest Competition Updates</h2>
+          <span class="text-xs text-slate-500 font-medium">Updated weekly during active rounds</span>
+        </div>
+        <UpdatesFeed updates={updates} client:visible />
+      </section>
+
+    </div>
+  </div>
+</BaseLayout>

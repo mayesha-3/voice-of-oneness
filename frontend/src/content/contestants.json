@@ -1,0 +1,38 @@
+[
+  {
+    "id": "c1",
+    "name": "Ibrahim Hussain",
+    "stage": "top40",
+    "photo": "/placeholders/contestant-1.jpg",
+    "institution": "Darul Uloom London",
+    "broadcastDay": "Monday",
+    "city": "London"
+  },
+  {
+    "id": "c2",
+    "name": "Yusuf Rahman",
+    "stage": "top40",
+    "photo": "/placeholders/contestant-2.jpg",
+    "institution": "Madani Academy Luton",
+    "broadcastDay": "Tuesday",
+    "city": "Luton"
+  },
+  {
+    "id": "c3",
+    "name": "Bilal Ahmed",
+    "stage": "top10",
+    "photo": "/placeholders/contestant-3.jpg",
+    "institution": "Al-Kawthar Institute",
+    "broadcastDay": "Thursday",
+    "city": "Birmingham"
+  },
+  {
+    "id": "c4",
+    "name": "Omar Farooq",
+    "stage": "winners",
+    "photo": "/placeholders/contestant-4.jpg",
+    "institution": "Tayyibah Girls School",
+    "broadcastDay": "Final Broadcast",
+    "city": "Bradford"
+  }
+]

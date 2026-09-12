@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import WinnerCard from '../../components/hall-of-fame/WinnerCard';
+import winners from '../../content/winners.json';
+---
+
+<BaseLayout
+  title="Hall of Fame & Past Winners | The Voice of Oneness"
+  description="Honouring past champions of The Voice of Oneness national Qur'an recitation competition organized by TV One UK since 2021."
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
+    <div class="text-center max-w-2xl mx-auto">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Hall of Fame & Achievement Board</h1>
+      <p class="text-slate-600 mt-2">Celebrating our national champions who demonstrated extraordinary recitation, Tajweed mastery, and devotion.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {winners.map((winner) => (
+        <WinnerCard winner={winner} client:load />
+      ))}
+    </div>
+  </div>
+</BaseLayout>

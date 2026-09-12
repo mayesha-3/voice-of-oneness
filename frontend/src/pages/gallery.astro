@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import YearFilterGrid from '../components/gallery/YearFilterGrid';
+import history from '../content/history.json';
+---
+
+<BaseLayout
+  title="6-Year History Gallery | The Voice of Oneness"
+  description="Explore photo archives, studio moments, and key milestones from 6 years of national Qur'an recitation competition (2021 to Present)."
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
+    <div class="text-center max-w-2xl mx-auto">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900">6-Year Journey & Gallery</h1>
+      <p class="text-slate-600 mt-2">From our 2021 pandemic virtual launch on Zoom to TV One UK's flagship national studio broadcasts.</p>
+    </div>
+
+    {/* Season History Milestones */}
+    <section class="bg-slate-50 border border-slate-200 shadow-sm rounded-xl p-6">
+      <h2 class="text-xl font-bold text-slate-900 mb-6 text-center">Season-by-Season Milestones</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {history.map((h) => (
+          <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
+            <span class="text-xs font-bold text-tvone-orange uppercase">Season {h.season} ({h.year})</span>
+            <h3 class="text-base font-bold text-slate-900 mt-1">{h.title}</h3>
+            <p class="text-xs text-slate-600 mt-2">{h.description}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    {/* Filterable Photo Gallery Island */}
+    <section>
+      <h2 class="text-xl font-bold text-slate-900 mb-6">Archive Photo Grid</h2>
+      <YearFilterGrid client:load />
+    </section>
+  </div>
+</BaseLayout>

@@ -67,6 +67,8 @@ export const CurtainBanner: React.FC<CurtainBannerProps> = ({ bgImage }) => {
             src={finalImage}
             alt="National Quran Competition 2026 - TV One UK"
             className="w-full h-[auto] object-contain block"
+            loading="lazy"
+            decoding="async"
           />
         </div>
 

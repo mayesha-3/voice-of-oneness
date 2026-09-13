@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [currentPath, setCurrentPath] = useState("/");
 
-  const currentPath = typeof window !== "undefined" ? window.location.pathname : "/";
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setCurrentPath(window.location.pathname);
+    }
+  }, []);
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -17,36 +22,30 @@ export const Navbar: React.FC = () => {
   ];
 
   const isActiveLink = (href: string) => {
-    if (href === "/") return currentPath === "/";
-    if (href === "/hall-of-fame") return currentPath.startsWith("/hall-of-fame");
-    if (href === "/contestants") return currentPath.startsWith("/contestants");
-    if (href === "/this-year") return currentPath.startsWith("/this-year");
-    if (href === "/gallery") return currentPath.startsWith("/gallery");
-    if (href === "/team") return currentPath.startsWith("/team");
-    if (href === "/organizers") return currentPath.startsWith("/organizers");
-    if (href === "/sponsors") return currentPath.startsWith("/sponsors");
-    return currentPath === href;
+    if (href === "/") {
+      return currentPath === "/";
+    }
+    return currentPath.startsWith(href);
   };
 
   return (
-    <header className="sticky top-0 left-0 right-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-slate-200/80 shadow-xs transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+    <header className="sticky top-0 left-0 right-0 z-50 w-full bg-white opacity-100 border-b border-slate-200 shadow-sm">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="flex items-center justify-between h-16 bg-white">
           {/* Logo Area */}
           <div className="flex items-center space-x-3">
             <img
-              className="w-24 sm:w-32 md:w-40 lg:w-48 h-auto max-w-full"
+              className="w-20 sm:w-28 md:w-36 lg:w-44 h-auto max-w-full"
               src="/pictures/TV-One-Logo-with-Sky.png"
               alt="TV One Logo"
             />
-
             <span className="hidden sm:inline-block text-xs font-semibold pl-3 border-l border-slate-300 text-slate-500">
               The Voice of Oneness
             </span>
           </div>
 
           {/* Nav Links (Desktop) */}
-          <nav className="hidden md:flex items-center space-x-6 text-m font-semibold">
+          <nav className="hidden md:flex items-center space-x-6 text-sm font-semibold">
             {navLinks.map((link) => {
               const active = isActiveLink(link.href);
               return (
@@ -65,40 +64,12 @@ export const Navbar: React.FC = () => {
             })}
           </nav>
 
-          {/* Social Icons */}
-          {/* <div className="hidden lg:flex items-center space-x-2">
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Facebook"
-              className="w-8 h-8 rounded-md bg-[#1877F2] text-white flex items-center justify-center font-bold text-xs hover:opacity-90 transition-transform active:scale-95 shadow-xs">
-              f
-            </a>
-            <a
-              href="https://youtube.com/@tvoneuk"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="YouTube"
-              className="w-8 h-8 rounded-md bg-[#FF0000] text-white flex items-center justify-center font-bold text-xs hover:opacity-90 transition-transform active:scale-95 shadow-xs">
-              ▶
-            </a>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Twitter / X"
-              className="w-8 h-8 rounded-md bg-[#1DA1F2] text-white flex items-center justify-center font-bold text-xs hover:opacity-90 transition-transform active:scale-95 shadow-xs">
-              t
-            </a>
-          </div> */}
-
           {/* Mobile Menu Toggle Button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
               type="button"
-              className="p-2 rounded-lg text-slate-700 hover:bg-slate-100 transition-colors focus:outline-hidden"
+              className="p-2 rounded-lg text-slate-700 bg-white hover:bg-slate-100 transition-colors focus:outline-none"
               aria-label="Toggle Navigation">
               <svg
                 className="w-6 h-6"
@@ -127,7 +98,7 @@ export const Navbar: React.FC = () => {
 
         {/* Mobile Dropdown Menu */}
         {isOpen && (
-          <div className="md:hidden py-4 px-2 border-t border-slate-200/80 space-y-1 bg-white/95 backdrop-blur-lg rounded-b-2xl shadow-xl">
+          <div className="md:hidden py-4 px-2 border-t border-slate-200 space-y-1 bg-white opacity-100 rounded-b-2xl shadow-xl">
             {navLinks.map((link) => {
               const active = isActiveLink(link.href);
               return (
@@ -145,31 +116,6 @@ export const Navbar: React.FC = () => {
                 </a>
               );
             })}
-
-            {/* Mobile Socials */}
-            {/* <div className="flex items-center space-x-3 pt-3 px-3 border-t border-slate-200/80">
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noreferrer"
-                className="w-8 h-8 rounded bg-[#1877F2] text-white flex items-center justify-center font-bold text-xs">
-                f
-              </a>
-              <a
-                href="https://youtube.com/@tvoneuk"
-                target="_blank"
-                rel="noreferrer"
-                className="w-8 h-8 rounded bg-[#FF0000] text-white flex items-center justify-center font-bold text-xs">
-                ▶
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noreferrer"
-                className="w-8 h-8 rounded bg-[#1DA1F2] text-white flex items-center justify-center font-bold text-xs">
-                t
-              </a>
-            </div> */}
           </div>
         )}
       </div>

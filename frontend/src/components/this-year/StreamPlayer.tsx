@@ -20,6 +20,7 @@ export const StreamPlayer: React.FC<StreamPlayerProps> = ({
           title={title}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
+          loading="lazy"
         />
       </div>
       <div className="p-4 bg-white border-t border-slate-200 flex items-center justify-between">

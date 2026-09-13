@@ -1,7 +1,8 @@
 ---
 import SEOHead from '../components/shared/SEOHead';
-import Navbar from '../components/shared/Navbar';
-import Footer from '../components/shared/Footer';
+import Navbar from '../components/shared/Navbar.astro';
+import Footer from '../components/shared/Footer.astro';
+import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
 
 export interface Props {
@@ -32,6 +33,7 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <ClientRouter />
     
     <SEOHead
       title={title}
@@ -41,11 +43,10 @@ const {
       ogType={ogType}
       eventSchema={eventSchema}
       personSchema={personSchema}
-      client:load
     />
   </head>
   <body class="bg-white text-slate-900 min-h-screen flex flex-col antialiased">
-    <Navbar client:load />
+    <Navbar />
 
     <main class="flex-grow">
       <slot />

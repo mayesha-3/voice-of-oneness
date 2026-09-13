@@ -119,7 +119,11 @@ export const GoldConfettiBackground: React.FC = () => {
 
     let animationFrameId: number;
     let particles: Particle[] = [];
-    const particleCount = 85;
+
+    // Respect user's motion preferences
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+    const particleCount = 50;
 
     const goldPalette = [
       "#D4AF37", // Metallic Gold
@@ -315,6 +319,7 @@ export const WinnerCard: React.FC<WinnerCardProps> = ({ winner }) => {
                   alt={winner.name}
                   className="h-full w-full object-cover"
                   loading="lazy"
+                  decoding="async"
                 />
               ) : (
                 <span className="text-slate-400 text-xs font-medium px-2">
@@ -347,11 +352,7 @@ export const WinnerCard: React.FC<WinnerCardProps> = ({ winner }) => {
         )}
       </div>
 
-      <blockquote
-        className={`relative z-10 text-[13px] italic text-slate-600 border-l-2 ${theme.quoteBorder} pl-3 py-2 my-4 bg-gradient-to-r ${theme.quoteBg} to-transparent rounded-r text-left w-full`}
-      >
-        &ldquo;{winner.quote}&rdquo;
-      </blockquote>
+
 
       {/* ---- Action block ---- */}
       <div className="relative z-10 w-full pt-3 border-t border-slate-100/80 flex items-center justify-between mt-auto">

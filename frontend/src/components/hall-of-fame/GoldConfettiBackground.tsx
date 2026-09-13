@@ -28,7 +28,11 @@ export const GoldConfettiBackground: React.FC = () => {
 
     let animationFrameId: number;
     let particles: Particle[] = [];
-    const particleCount = 75; // Balanced for high performance and visual density
+
+    // Respect user's motion preferences
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+    const particleCount = 50; // Reduced for performance while maintaining visual density
 
     // Luxurious metallic gold palette
     const goldPalette = [

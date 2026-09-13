@@ -59,7 +59,7 @@ export const YearFilterGrid: React.FC<YearFilterGridProps> = ({ items = defaultI
         {filteredItems.map((item) => (
           <div key={item.id} className="bg-white border border-slate-200 rounded-lg overflow-hidden group hover:shadow-md transition-shadow">
             <div className="aspect-video bg-slate-100 relative border-b border-slate-200">
-              <img src={item.imageUrl} alt={item.title} className="h-full w-full object-cover" />
+              <img src={item.imageUrl} alt={item.title} className="h-full w-full object-cover" loading="lazy" decoding="async" />
               <span className="absolute top-2 right-2 bg-tvone-maroon text-white text-xs px-2.5 py-0.5 rounded font-bold shadow-sm">
                 {item.year}
               </span>

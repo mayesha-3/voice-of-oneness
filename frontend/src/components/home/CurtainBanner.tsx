@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import bannerImg from "../../assets/pictures/banner_competition.jpg";
+const bannerImg = "/pictures/banner_competition.jpg";
 
 export interface CurtainBannerProps {
   bgImage?: string;
@@ -104,7 +104,7 @@ export const CurtainBanner: React.FC<CurtainBannerProps> = ({ bgImage }) => {
       <div
         ref={wrapperRef}
         className="hidden md:block relative w-full h-[250vh]">
-        <section className="sticky top-0 h-[80vh] w-full overflow-hidden">
+        <section className="sticky top-0 h-[70vh] mt-[2vh] w-full overflow-hidden">
           {/* Text content sits underneath */}
           <div className="absolute inset-0 z-0 flex items-center justify-center bg-slate-100">
             <div className="relative max-w-5xl mx-auto px-4 text-center space-y-6 sm:space-y-8">

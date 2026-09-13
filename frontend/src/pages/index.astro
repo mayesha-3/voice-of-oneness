@@ -9,8 +9,8 @@ import CurtainBanner from '../components/home/CurtainBanner.tsx';
 
 const countdownConfig = {
   targetDate: "2026-08-31T23:59:59Z",
-  eventTitle: "Registration Deadline Countdown",
-  subtitle: "Registration Deadline: 31 August 2026 (Age 7-13 Boys & Girls)"
+  eventTitle: "Next Episode Countdown",
+  subtitle: "Keep an eye on our youtube and TV channels"
 };
 
 const liveBannerConfig = {
@@ -29,7 +29,7 @@ const liveBannerConfig = {
 
   <!-- 2. Main Page Content (Rises as a curtain on desktop; normal stack on mobile) -->
   <div class="relative z-10 bg-white md:rounded-t-3xl md:shadow-[0_-20px_40px_rgba(0,0,0,0.3)] md:-mt-6 min-h-screen">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-14 pb-20 space-y-12 md:space-y-16">
+    <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-14 pb-20 space-y-12 md:space-y-16">
       
       <!-- Live Status / Announcement Banner -->
       <LiveBanner config={liveBannerConfig} client:load />

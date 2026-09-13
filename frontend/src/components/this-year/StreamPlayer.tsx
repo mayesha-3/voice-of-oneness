@@ -6,8 +6,10 @@ export interface StreamPlayerProps {
 }
 
 export const StreamPlayer: React.FC<StreamPlayerProps> = ({
-  embedUrl = "https://www.youtube-nocookie.com/embed/live_stream?channel=TVONEUK",
-  title = "The Voice of Oneness Live Stream"
+
+    // paste the live link here
+  embedUrl = "https://www.youtube.com/embed/OVpGtQgoHOk?si=kbzeEtRMmPoxdjE7", 
+  title = "The Voice of Oneness Live Stream",
 }) => {
   return (
     <div className="bg-slate-50 border border-slate-200 rounded-xl overflow-hidden shadow-md">
@@ -22,7 +24,9 @@ export const StreamPlayer: React.FC<StreamPlayerProps> = ({
       </div>
       <div className="p-4 bg-white border-t border-slate-200 flex items-center justify-between">
         <span className="text-sm font-semibold text-slate-800">{title}</span>
-        <span className="text-xs bg-slate-100 text-slate-600 px-2.5 py-1 rounded font-medium border border-slate-200">HD 1080p Stream</span>
+        <span className="text-xs bg-slate-100 text-slate-600 px-2.5 py-1 rounded font-medium border border-slate-200">
+          HD 1080p Stream
+        </span>
       </div>
     </div>
   );

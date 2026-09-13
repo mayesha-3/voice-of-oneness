@@ -19,8 +19,12 @@ export const WinnerCard: React.FC<WinnerCardProps> = ({ winner }) => {
   return (
     <article className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-tvone-orange/50 transition-all flex flex-col justify-between">
       <div>
-        <div className="aspect-square bg-slate-100 relative flex items-center justify-center border-b border-slate-200">
-          <span className="text-slate-500 text-sm font-medium">{winner.name} Portrait</span>
+        <div className="aspect-square bg-slate-100 relative overflow-hidden border-b border-slate-200">
+          {winner.photo ? (
+            <img src={winner.photo} alt={winner.name} className="h-full w-full object-cover" />
+          ) : (
+            <span className="text-slate-500 text-sm font-medium">{winner.name} Portrait</span>
+          )}
           <div className="absolute top-3 left-3 bg-tvone-orange text-white text-xs font-extrabold px-3 py-1 rounded-full shadow">
             Champion {winner.year}
           </div>

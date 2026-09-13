@@ -3,7 +3,7 @@
     "year": 2025,
     "name": "Abdullah Al-Mansoor",
     "slug": "abdullah-al-mansoor",
-    "photo": "/placeholders/winner-2025.jpg",
+    "photo": "/pictures/2025_1st.jpg",
     "quote": "Reciting on TV One UK stage was a truly transformative experience for my spiritual growth.",
     "category": "Adults Category (18-25)",
     "location": "London, UK",
@@ -13,7 +13,7 @@
     "year": 2024,
     "name": "Zayd ibn Tariq",
     "slug": "zayd-ibn-tariq",
-    "photo": "/placeholders/winner-2024.jpg",
+    "photo": "/pictures/2024_1st.jpg",
     "quote": "The Voice of Oneness unites hearts across the nation under the recitation of the Holy Qur'an.",
     "category": "Youth Category (Under 18)",
     "location": "Birmingham, UK",
@@ -23,10 +23,30 @@
     "year": 2023,
     "name": "Hamza Ali Siddiqui",
     "slug": "hamza-ali-siddiqui",
-    "photo": "/placeholders/winner-2023.jpg",
+    "photo": "/pictures/2023_1st.jpg",
     "quote": "Investings in our children's relationship with the Qur'an builds the future of our Ummah.",
     "category": "Adults Category (18-25)",
     "location": "Manchester, UK",
     "score": "99.0%"
+  },
+  {
+    "year": 2022,
+    "name": "Season 2 Winner",
+    "slug": "season-2-winner",
+    "photo": "/pictures/2022_1st.jpeg",
+    "quote": "The 2022 champion is represented by the year’s first-place public image.",
+    "category": "Season 2 Category",
+    "location": "UK",
+    "score": "N/A"
+  },
+  {
+    "year": 2021,
+    "name": "Season 1 Winner",
+    "slug": "season-1-winner",
+    "photo": "/pictures/2021_1st.jpg",
+    "quote": "The 2021 champion is represented by the year’s first-place public image.",
+    "category": "Season 1 Category",
+    "location": "UK",
+    "score": "N/A"
   }
 ]

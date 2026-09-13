@@ -14,12 +14,12 @@ export interface YearFilterGridProps {
 }
 
 const defaultItems: GalleryItem[] = [
-  { id: 'g1', year: 2025, title: 'Season 5 Grand Finale Stage', category: 'Finale', imageUrl: '/placeholders/gallery-2025-1.jpg', caption: 'Live performance in front of TV One UK judges.' },
-  { id: 'g2', year: 2025, title: 'Winner Trophy Presentation', category: 'Awards', imageUrl: '/placeholders/gallery-2025-2.jpg', caption: 'Moyeen Uddin Ahmed Chowdhury presenting the trophy.' },
-  { id: 'g3', year: 2024, title: 'Season 4 Semi-Final Reciters', category: 'Semi-Finals', imageUrl: '/placeholders/gallery-2024-1.jpg', caption: 'Top 40 contestants in studio.' },
-  { id: 'g4', year: 2023, title: 'Season 3 European Auditions', category: 'Auditions', imageUrl: '/placeholders/gallery-2023-1.jpg', caption: 'Reciters gathered at TV One UK studio.' },
-  { id: 'g5', year: 2022, title: 'Season 2 TV Broadcast Debut', category: 'Broadcast', imageUrl: '/placeholders/gallery-2022-1.jpg', caption: 'First live television broadcast setup.' },
-  { id: 'g6', year: 2021, title: 'Season 1 Virtual Zoom Launch', category: 'Launch', imageUrl: '/placeholders/gallery-2021-1.jpg', caption: 'Inaugural online recitation competition.' },
+  { id: 'g1', year: 2025, title: 'Season 5 Grand Finale Stage', category: 'Finale', imageUrl: '/pictures/finale_2025.jpg', caption: 'Live performance in front of TV One UK judges.' },
+  { id: 'g2', year: 2025, title: 'Winner Trophy Presentation', category: 'Awards', imageUrl: '/pictures/2025_1st.jpg', caption: 'Moyeen Uddin Ahmed Chowdhury presenting the trophy.' },
+  { id: 'g3', year: 2024, title: 'Season 4 Semi-Final Reciters', category: 'Semi-Finals', imageUrl: '/pictures/finale_2024.jpg', caption: 'Top 40 contestants in studio.' },
+  { id: 'g4', year: 2023, title: 'Season 3 European Auditions', category: 'Auditions', imageUrl: '/pictures/finale_2023.jpg', caption: 'Reciters gathered at TV One UK studio.' },
+  { id: 'g5', year: 2022, title: 'Season 2 TV Broadcast Debut', category: 'Broadcast', imageUrl: '/pictures/finale_2022.jpg', caption: 'First live television broadcast setup.' },
+  { id: 'g6', year: 2021, title: 'Season 1 Virtual Zoom Launch', category: 'Launch', imageUrl: '/pictures/finale_2021.jpg', caption: 'Inaugural online recitation competition.' },
 ];
 
 export const YearFilterGrid: React.FC<YearFilterGridProps> = ({ items = defaultItems }) => {
@@ -58,8 +58,8 @@ export const YearFilterGrid: React.FC<YearFilterGridProps> = ({ items = defaultI
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredItems.map((item) => (
           <div key={item.id} className="bg-white border border-slate-200 rounded-lg overflow-hidden group hover:shadow-md transition-shadow">
-            <div className="aspect-video bg-slate-100 relative flex items-center justify-center text-slate-500 text-sm font-medium border-b border-slate-200">
-              <span>{item.title} Photo</span>
+            <div className="aspect-video bg-slate-100 relative border-b border-slate-200">
+              <img src={item.imageUrl} alt={item.title} className="h-full w-full object-cover" />
               <span className="absolute top-2 right-2 bg-tvone-maroon text-white text-xs px-2.5 py-0.5 rounded font-bold shadow-sm">
                 {item.year}
               </span>

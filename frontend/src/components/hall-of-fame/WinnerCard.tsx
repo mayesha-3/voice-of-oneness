@@ -426,11 +426,11 @@ export const YearPodium: React.FC<YearPodiumProps> = ({ year, winners }) => {
         <div className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-300/60 to-transparent" />
       </div>
 
-      {/* Podium grid — 2nd | 1st | 3rd */}
+      {/* Podium grid — Desktop: 2nd | 1st | 3rd, Mobile: 1st, 2nd, 3rd */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-end max-w-5xl mx-auto">
-        {/* 2nd Place column (side-by-side when multiple) */}
+        {/* 2nd Place column — appears 2nd on mobile, 1st on desktop */}
         <div
-          className={`md:pt-10 ${
+          className={`order-2 md:order-1 md:pt-10 ${
             secondPlace.length > 1
               ? "grid grid-cols-2 gap-3 items-end"
               : "flex flex-col items-center gap-6"
@@ -446,8 +446,8 @@ export const YearPodium: React.FC<YearPodiumProps> = ({ year, winners }) => {
           ))}
         </div>
 
-        {/* 1st Place column — elevated */}
-        <div className="flex flex-col items-center gap-6 md:pb-6">
+        {/* 1st Place column — appears 1st on mobile, 2nd (center) on desktop */}
+        <div className="order-1 md:order-2 flex flex-col items-center gap-6 md:pb-6">
           {firstPlace.map((w) => (
             <div key={w.slug} className="w-full max-w-xs">
               <WinnerCard winner={w} />
@@ -455,8 +455,8 @@ export const YearPodium: React.FC<YearPodiumProps> = ({ year, winners }) => {
           ))}
         </div>
 
-        {/* 3rd Place column */}
-        <div className="flex flex-col items-center gap-6 md:pt-14">
+        {/* 3rd Place column — appears 3rd on both */}
+        <div className="order-3 md:order-3 flex flex-col items-center gap-6 md:pt-14">
           {thirdPlace.map((w) => (
             <div key={w.slug} className="w-full max-w-xs">
               <WinnerCard winner={w} />

@@ -10,30 +10,32 @@ export interface HeroCountdownProps {
   config: CountdownConfig;
 }
 
+const getCountdownParts = (targetDate: string) => {
+  const difference = new Date(targetDate).getTime() - Date.now();
+
+  if (difference <= 0) {
+    return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+  }
+
+  return {
+    days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+    hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+    minutes: Math.floor((difference / 1000 / 60) % 60),
+    seconds: Math.floor((difference / 1000) % 60),
+  };
+};
+
 export const HeroCountdown: React.FC<HeroCountdownProps> = ({ config }) => {
-  const [timeLeft, setTimeLeft] = useState({
-    days: 10,
-    hours: 0,
-    minutes: 0,
-    seconds: 30
-  });
+  const [timeLeft, setTimeLeft] = useState(() => getCountdownParts(config.targetDate));
 
   useEffect(() => {
     const calculateTimeLeft = () => {
-      const difference = +new Date(config.targetDate) - +new Date();
-      if (difference > 0) {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-          minutes: Math.floor((difference / 1000 / 60) % 60),
-          seconds: Math.floor((difference / 1000) % 60)
-        });
-      }
+      setTimeLeft(getCountdownParts(config.targetDate));
     };
 
     calculateTimeLeft();
-    const timer = setInterval(calculateTimeLeft, 1000);
-    return () => clearInterval(timer);
+    const timer = window.setInterval(calculateTimeLeft, 1000);
+    return () => window.clearInterval(timer);
   }, [config.targetDate]);
 
   return (

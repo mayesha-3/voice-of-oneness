@@ -11,12 +11,15 @@ export async function getStaticPaths() {
 
 const { winner } = Astro.props;
 
+const positionLabels: Record<number, string> = { 1: '1st Place', 2: '2nd Place', 3: '3rd Place' };
+const posLabel = positionLabels[winner.position as number] || `${winner.position}th Place`;
+
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": winner.name,
-  "jobTitle": `Winner of The Voice of Oneness (${winner.year})`,
-  "award": `1st Place - The Voice of Oneness ${winner.year}`,
+  "jobTitle": `${posLabel} - The Voice of Oneness (${winner.year})`,
+  "award": `${posLabel} - The Voice of Oneness ${winner.year}`,
   "alumniOf": winner.location,
   "description": winner.quote
 };
@@ -32,24 +35,36 @@ const personSchema = {
       &larr; Back to Hall of Fame
     </a>
 
-    <div class="bg-white border border-slate-200 shadow-sm rounded-xl p-8">
-      <div class="flex flex-col md:flex-row gap-8 items-center">
-        <div class="w-48 h-48 bg-slate-100 rounded-xl flex items-center justify-center text-slate-500 font-medium border border-slate-200 shrink-0">
-          <span>{winner.name} Portrait</span>
-        </div>
-
-        <div class="space-y-3 text-center md:text-left">
-          <span class="inline-block bg-tvone-orange text-white text-xs font-extrabold px-3 py-1 rounded-full shadow-sm">
-            Champion {winner.year}
-          </span>
-          <h1 class="text-3xl font-extrabold text-slate-900">{winner.name}</h1>
-          <p class="text-sm font-bold text-tvone-blue">{winner.category} • {winner.location}</p>
-
-          <blockquote class="text-base italic text-slate-700 border-l-4 border-tvone-orange pl-4 py-2 bg-slate-50 rounded-r text-left">
-            "{winner.quote}"
-          </blockquote>
+    <!-- [slug].astro — replace only the portrait block inside the white card -->
+<div class="flex flex-col md:flex-row gap-10 items-center">
+  <!-- ---- Larger gold-framed portrait for the detail page ---- -->
+  <div class="relative shrink-0">
+    <div class="w-52 h-52 rounded-full p-[4px] bg-[conic-gradient(from_180deg,#fde68a,#f59e0b,#fbbf24,#fde68a,#f59e0b,#fde68a)] shadow-[0_0_0_6px_rgba(251,191,36,0.15)]">
+      <div class="w-full h-full rounded-full p-1 bg-white">
+        <div class="w-full h-full rounded-full overflow-hidden bg-slate-100 flex items-center justify-center">
+          {winner.photo ? (
+            <img src={winner.photo} alt={winner.name} class="h-full w-full object-cover" loading="lazy" />
+          ) : (
+            <span class="text-slate-400 text-xs font-medium px-2">{winner.name}</span>
+          )}
         </div>
       </div>
+    </div>
+
+    <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-extrabold px-4 py-1.5 rounded-full shadow-md whitespace-nowrap">
+      {posLabel} — {winner.year}
+    </div>
+  </div>
+
+  <div class="space-y-3 text-center md:text-left mt-4 md:mt-0">
+    <h1 class="text-3xl font-extrabold text-slate-900">{winner.name}</h1>
+    <p class="text-sm font-bold text-tvone-blue">{winner.category} • {winner.location}</p>
+
+    <blockquote class="text-base italic text-slate-700 border-l-4 border-amber-400 pl-4 py-2 bg-amber-50/50 rounded-r text-left">
+      "{winner.quote}"
+    </blockquote>
+  </div>
+</div>
 
       <div class="mt-8 pt-8 border-t border-slate-200 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
         <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">

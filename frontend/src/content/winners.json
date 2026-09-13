@@ -1,6 +1,7 @@
 [
   {
     "year": 2025,
+    "position": 1,
     "name": "Abdullah Al-Mansoor",
     "slug": "abdullah-al-mansoor",
     "photo": "/pictures/2025_1st.jpg",
@@ -10,7 +11,28 @@
     "score": "98.5%"
   },
   {
+    "year": 2025,
+    "position": 2,
+    "name": "2025 Runner-Up",
+    "slug": "2025-runner-up",
+    "photo": "/pictures/2025_2nd.jpg",
+    "quote": "Being part of this blessed competition strengthened my connection to the Qur'an.",
+    "category": "Adults Category (18-25)",
+    "location": "UK"
+  },
+  {
+    "year": 2025,
+    "position": 3,
+    "name": "2025 Third Place",
+    "slug": "2025-third-place",
+    "photo": "/pictures/2025_3rd.jpg",
+    "quote": "Every moment on stage was a reminder of the beauty of Allah's words.",
+    "category": "Adults Category (18-25)",
+    "location": "UK"
+  },
+  {
     "year": 2024,
+    "position": 1,
     "name": "Zayd ibn Tariq",
     "slug": "zayd-ibn-tariq",
     "photo": "/pictures/2024_1st.jpg",
@@ -20,33 +42,129 @@
     "score": "97.8%"
   },
   {
+    "year": 2024,
+    "position": 2,
+    "name": "2024 Runner-Up",
+    "slug": "2024-runner-up",
+    "photo": "/pictures/2024_2nd.jpg",
+    "quote": "Sharing the stage with such talented reciters was truly humbling.",
+    "category": "Youth Category (Under 18)",
+    "location": "UK"
+  },
+  {
+    "year": 2024,
+    "position": 2,
+    "name": "2024 Runner-Up",
+    "slug": "2024-runner-up-2",
+    "photo": "/pictures/2024_2nd_2.jpg",
+    "quote": "This competition reminded me that the Qur'an is a journey, not a destination.",
+    "category": "Youth Category (Under 18)",
+    "location": "UK"
+  },
+  {
+    "year": 2024,
+    "position": 3,
+    "name": "2024 Third Place",
+    "slug": "2024-third-place",
+    "photo": "/pictures/2024_3rd.jpg",
+    "quote": "Every verse I recited carried the prayers of my family and community.",
+    "category": "Youth Category (Under 18)",
+    "location": "UK"
+  },
+  {
     "year": 2023,
+    "position": 1,
     "name": "Hamza Ali Siddiqui",
     "slug": "hamza-ali-siddiqui",
     "photo": "/pictures/2023_1st.jpg",
-    "quote": "Investings in our children's relationship with the Qur'an builds the future of our Ummah.",
+    "quote": "Investing in our children's relationship with the Qur'an builds the future of our Ummah.",
     "category": "Adults Category (18-25)",
     "location": "Manchester, UK",
     "score": "99.0%"
   },
   {
+    "year": 2023,
+    "position": 2,
+    "name": "2023 Runner-Up",
+    "slug": "2023-runner-up",
+    "photo": "/pictures/2023_2nd.jpg",
+    "quote": "The stage of The Voice of Oneness felt like a sanctuary of peace.",
+    "category": "Adults Category (18-25)",
+    "location": "UK"
+  },
+  {
+    "year": 2023,
+    "position": 3,
+    "name": "2023 Third Place",
+    "slug": "2023-third-place",
+    "photo": "/pictures/2023_3rd.jpg",
+    "quote": "Competing alongside such dedicated reciters pushed me to grow.",
+    "category": "Adults Category (18-25)",
+    "location": "UK"
+  },
+  {
     "year": 2022,
+    "position": 1,
     "name": "Season 2 Winner",
     "slug": "season-2-winner",
     "photo": "/pictures/2022_1st.jpeg",
-    "quote": "The 2022 champion is represented by the year’s first-place public image.",
+    "quote": "The 2022 champion is represented by the year's first-place public image.",
+    "category": "Season 2 Category",
+    "location": "UK",
+    "score": "N/A"
+  },
+  {
+    "year": 2022,
+    "position": 2,
+    "name": "Season 2 Winner",
+    "slug": "season-2-winner",
+    "photo": "/pictures/2022_2nd.jpeg",
+    "quote": "The 2022 champion is represented by the year's first-place public image.",
+    "category": "Season 2 Category",
+    "location": "UK",
+    "score": "N/A"
+  },
+  {
+    "year": 2022,
+    "position": 3,
+    "name": "Season 2 Winner",
+    "slug": "season-2-winner",
+    "photo": "/pictures/2022_3rd.jpeg",
+    "quote": "The 2022 champion is represented by the year's first-place public image.",
     "category": "Season 2 Category",
     "location": "UK",
     "score": "N/A"
   },
   {
     "year": 2021,
+    "position": 1,
     "name": "Season 1 Winner",
     "slug": "season-1-winner",
     "photo": "/pictures/2021_1st.jpg",
-    "quote": "The 2021 champion is represented by the year’s first-place public image.",
+    "quote": "The 2021 champion is represented by the year's first-place public image.",
     "category": "Season 1 Category",
     "location": "UK",
     "score": "N/A"
+  },
+
+  {
+    "year": 2021,
+    "position": 2,
+    "name": "2021 Runner-Up",
+    "slug": "2021-runner-up",
+    "photo": "/pictures/2021_2nd.jpg",
+    "quote": "Being recognised in the very first season was a blessing I'll always treasure.",
+    "category": "Season 1 Category",
+    "location": "UK"
+  },
+  {
+    "year": 2021,
+    "position": 3,
+    "name": "2021 Third Place",
+    "slug": "2021-third-place",
+    "photo": "/pictures/2021_3rd.jpg",
+    "quote": "Season one set the foundation for something truly beautiful.",
+    "category": "Season 1 Category",
+    "location": "UK"
   }
 ]
